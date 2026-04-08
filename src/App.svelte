@@ -9,7 +9,7 @@
   import PublicResume from './lib/PublicResume.svelte'
   import type { EducationItem, Profile, ProjectItem, ResumeItem, SkillGroup } from './lib/resumeTypes'
 
-  let theme: 'light' | 'dark' = 'light'
+  let theme: 'light' | 'dark' | 'system' = 'light'
 
   const profile = JSON.parse(profileDataRaw) as Profile
   const experience = JSON.parse(experienceDataRaw) as ResumeItem[]
@@ -20,24 +20,38 @@
   const lastUpdated = import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
   const profileLinks = profile as Profile & { linkedin?: string; github?: string }
 
-  const faviconHrefForTheme = (nextTheme: 'light' | 'dark') => `${import.meta.env.BASE_URL}favicon-${nextTheme}.svg`
+  const getEffectiveTheme = (currentTheme: 'light' | 'dark' | 'system'): 'light' | 'dark' => {
+    if (currentTheme === 'system') {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    }
+    return currentTheme
+  }
 
-  const syncFavicon = (nextTheme: 'light' | 'dark') => {
+  const faviconHrefForTheme = (nextTheme: 'light' | 'dark' | 'system') => {
+    const effectiveTheme = getEffectiveTheme(nextTheme)
+    return `${import.meta.env.BASE_URL}favicon-${effectiveTheme}.svg`
+  }
+
+  const syncFavicon = (nextTheme: 'light' | 'dark' | 'system') => {
     const favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
     if (favicon) {
       favicon.href = faviconHrefForTheme(nextTheme)
     }
   }
 
-  const applyTheme = (nextTheme: 'light' | 'dark') => {
+  const applyTheme = (nextTheme: 'light' | 'dark' | 'system') => {
     theme = nextTheme
-    document.documentElement.dataset.theme = nextTheme
+    const effectiveTheme = getEffectiveTheme(nextTheme)
+    document.documentElement.dataset.theme = effectiveTheme
     localStorage.setItem('theme', nextTheme)
     syncFavicon(nextTheme)
   }
 
   const toggleTheme = () => {
-    applyTheme(theme === 'light' ? 'dark' : 'light')
+    const sequence: Array<'light' | 'dark' | 'system'> = ['light', 'dark', 'system']
+    const currentIndex = sequence.indexOf(theme)
+    const nextTheme = sequence[(currentIndex + 1) % sequence.length]
+    applyTheme(nextTheme)
   }
 
   const markdownFromResume = () => {
@@ -112,23 +126,38 @@
   }
 
   onMount(() => {
-    const storedTheme = localStorage.getItem('theme')
+    const storedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'system' | null
     const preferredTheme =
-      storedTheme === 'light' || storedTheme === 'dark'
+      storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system'
         ? storedTheme
         : window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
           : 'light'
 
     applyTheme(preferredTheme)
+
+    // Listen for OS theme preference changes when in system mode
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const handleChange = () => {
+      if (theme === 'system') {
+        const effectiveTheme = getEffectiveTheme('system')
+        document.documentElement.dataset.theme = effectiveTheme
+        syncFavicon('system')
+      }
+    }
+    mediaQuery.addEventListener('change', handleChange)
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange)
+    }
   })
 </script>
 
 <button class="brand-mark" type="button" aria-label="Export full resume as Markdown" on:click={exportMarkdown}>BL</button>
 
 <button class="theme-toggle" type="button" aria-label="Toggle theme" on:click={toggleTheme} aria-pressed={theme === 'dark'}>
-  <span aria-hidden="true">{theme === 'dark' ? '☼' : '☾'}</span>
-  <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+  <span aria-hidden="true">{theme === 'dark' ? '☼' : theme === 'light' ? '☾' : '◐'}</span>
+  <span>{theme === 'dark' ? 'Light' : theme === 'light' ? 'Dark' : 'System'}</span>
 </button>
 
 <PublicResume

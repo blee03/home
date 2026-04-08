@@ -352,6 +352,10 @@ li + li {
   margin-top: 1.2rem;
 }
 
+:root[data-theme='dark'] .footer {
+  background: transparent;
+}
+
 .footer-links {
   display: inline-flex;
   align-items: center;
