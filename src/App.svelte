@@ -11,10 +11,20 @@
 
   let theme: 'light' | 'dark' = 'light'
 
+  const faviconHrefForTheme = (nextTheme: 'light' | 'dark') => `${import.meta.env.BASE_URL}favicon-${nextTheme}.svg`
+
+  const syncFavicon = (nextTheme: 'light' | 'dark') => {
+    const favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement | null
+    if (favicon) {
+      favicon.href = faviconHrefForTheme(nextTheme)
+    }
+  }
+
   const applyTheme = (nextTheme: 'light' | 'dark') => {
     theme = nextTheme
     document.documentElement.dataset.theme = nextTheme
     localStorage.setItem('theme', nextTheme)
+    syncFavicon(nextTheme)
   }
 
   const toggleTheme = () => {
@@ -41,6 +51,8 @@
   const acronyms = JSON.parse(acronymDataRaw) as Record<string, string>
   const lastUpdated = import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
 </script>
+
+<div class="brand-mark" aria-hidden="true">BL</div>
 
 <button class="theme-toggle" type="button" aria-label="Toggle theme" on:click={toggleTheme} aria-pressed={theme === 'dark'}>
   <span aria-hidden="true">{theme === 'dark' ? '☼' : '☾'}</span>
