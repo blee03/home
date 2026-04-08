@@ -48,6 +48,7 @@
   const skillGroups = JSON.parse(skillsDataRaw) as SkillGroup[]
   const education = JSON.parse(educationDataRaw) as EducationItem[]
   const acronyms = JSON.parse(acronymDataRaw) as Record<string, string>
+  const lastUpdated = import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
 </script>
 
 <button class="theme-toggle" type="button" aria-label="Toggle theme" on:click={toggleTheme} aria-pressed={theme === 'dark'}>
@@ -65,5 +66,13 @@
     {acronyms}
   />
 {:else}
-  <PublicResume {profile} {experience} {projects} {skillGroups} {education} {acronyms} />
+  <PublicResume
+    {profile}
+    {experience}
+    {projects}
+    {skillGroups}
+    {education}
+    {acronyms}
+    {lastUpdated}
+  />
 {/if}

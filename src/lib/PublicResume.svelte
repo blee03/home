@@ -13,6 +13,9 @@
   export let projects: ProjectItem[]
   export let skillGroups: SkillGroup[]
   export let education: EducationItem[]
+  export let lastUpdated: string | undefined
+
+  const displayLastUpdated = lastUpdated ?? import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
 
   const acronymEntries = Object.entries(acronyms).sort((left, right) => right[0].length - left[0].length)
   const acronymPattern = new RegExp(
@@ -45,7 +48,6 @@
     })
   }
 
-  const year = new Date().getFullYear()
 </script>
 
 <main class="cv-shell">
@@ -160,7 +162,11 @@
   </section>
 
   <footer class="section-block footer">
-    <p>Updated {year}. This page evolves over time.</p>
-    <a class="dashboard-link" href="/internal">Open Internal Dashboard</a>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
+      <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="/internal">Internal</a>
+    </nav>
+    <p>Last updated: {displayLastUpdated}</p>
   </footer>
 </main>
