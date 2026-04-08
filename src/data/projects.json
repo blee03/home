@@ -1,0 +1,22 @@
+[
+  {
+    "id": "pulseboard-platform",
+    "name": "Pulseboard",
+    "technologies": ["C#", "JavaScript", "PostgreSQL", "Docker"],
+    "date": "2023",
+    "details": [
+      "Built a unified dashboard for metrics, incidents, and on-call context.",
+      "Adopted by four teams and reduced triage time by **30%**."
+    ]
+  },
+  {
+    "id": "writeflow-docs-tooling",
+    "name": "Writeflow Docs",
+    "technologies": ["TypeScript", "Node.js", "Markdown"],
+    "date": "2021",
+    "details": [
+      "Automated release-note generation from pull request metadata.",
+      "Cut release documentation prep time from 2 hours to **10 minutes**."
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Core",
+    "skills": ["System design", "Product thinking", "Technical leadership", "Mentorship"]
+  },
+  {
+    "title": "Frontend",
+    "skills": ["Svelte", "TypeScript", "Accessibility", "Performance optimization"]
+  },
+  {
+    "title": "Backend",
+    "skills": ["Node.js", "API design", "SQL", "Caching and queues"]
+  }
+]

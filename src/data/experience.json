@@ -1,0 +1,38 @@
+[
+  {
+    "id": "northbound-labs-staff-engineer",
+    "name-of-company": "Northbound Labs",
+    "role": "Staff Engineer",
+    "location": "Remote, US",
+    "date": "2022 - Present",
+    "details": [
+      "Led a TypeScript platform migration that reduced deployment time from 45 minutes to 7 minutes.",
+      "Introduced **API contracts** and observability standards that lowered production incidents by 38%.",
+      "Mentored 6 engineers through design reviews and career-growth planning."
+    ]
+  },
+  {
+    "id": "harbor-systems-senior-engineer",
+    "name-of-company": "Harbor Systems",
+    "role": "Senior Full-Stack Engineer",
+    "location": "New York, NY",
+    "date": "2018 - 2022",
+    "details": [
+      "Built a customer analytics dashboard with **real-time alerting** workflows.",
+      "Refactored the frontend into reusable modules, cutting feature delivery cycle time by 25%.",
+      "Partnered with product and design to deliver **accessible UI** across core surfaces."
+    ]
+  },
+  {
+    "id": "brightline-software-engineer",
+    "name-of-company": "Brightline Studio",
+    "role": "Software Engineer",
+    "location": "Austin, TX",
+    "date": "2014 - 2018",
+    "details": [
+      "Delivered client web platforms with strong SEO and performance baselines.",
+      "Built internal UI starter kits that standardized quality across projects.",
+      "Owned maintenance and feature delivery for multiple high-traffic applications."
+    ]
+  }
+]
