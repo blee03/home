@@ -15,6 +15,8 @@
   export let education: EducationItem[]
   export let lastUpdated: string | undefined
 
+  let expandedProjectId: string | null = null
+
   const displayLastUpdated = lastUpdated ?? import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
   const profileLinks = profile as Profile & { linkedin?: string; github?: string }
   const obfuscatedEmail = profile.email?.replace('@', ' [at] ').replaceAll('.', ' [dot] ')
@@ -52,6 +54,11 @@
       const label = acronyms[match]
       return `<abbr class="acronym" title="${escapeHtml(label)}">${match}</abbr>`
     })
+  }
+
+  const toggleProjectExpand = (projectId: string | undefined) => {
+    if (!projectId) return
+    expandedProjectId = expandedProjectId === projectId ? null : projectId
   }
 
 </script>
@@ -121,21 +128,45 @@
         </article>
       {:else}
         {#each projects as project}
-          <article class="card project-card">
-            <div class="card-head">
-              <div>
-                <h3>{project.name}</h3>
-                <p class="company">{project.technologies.join(', ')}</p>
+          <article class="card project-card" class:expanded={expandedProjectId === project.id}>
+            <button
+              class="project-toggle"
+              on:click={() => toggleProjectExpand(project.id)}
+              aria-expanded={expandedProjectId === project.id}
+              aria-label={`${expandedProjectId === project.id ? 'Collapse' : 'Expand'} ${project.name}`}
+            >
+              <div class="card-head">
+                <div>
+                  <h3>{project.name}</h3>
+                  <p class="company">{project.technologies.join(', ')}</p>
+                </div>
+                <div class="date-meta">
+                  <p class="period">{project.date}</p>
+                  <div class="project-expand-indicator" aria-hidden="true">▼</div>
+                </div>
               </div>
-              <div class="date-meta">
-                <p class="period">{project.date}</p>
+              <ul>
+                {#each project.details as detail}
+                  <li>{@html formatDetail(detail)}</li>
+                {/each}
+              </ul>
+            </button>
+            {#if expandedProjectId === project.id}
+              <div class="project-expanded">
+                {#if project.links && project.links.length > 0}
+                  <div class="project-links">
+                    {#each project.links as link, index}
+                      <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+                      {#if index < project.links.length - 1}
+                        <span>/</span>
+                      {/if}
+                    {/each}
+                  </div>
+                {:else}
+                  <p>More details coming soon...</p>
+                {/if}
               </div>
-            </div>
-            <ul>
-              {#each project.details as detail}
-                <li>{@html formatDetail(detail)}</li>
-              {/each}
-            </ul>
+            {/if}
           </article>
         {/each}
       {/if}
@@ -179,16 +210,24 @@
   </section>
 
   <footer class="section-block footer">
-    {#if socialLinks.length > 0}
-      <nav class="footer-links" aria-label="Footer links">
-        {#each socialLinks as link}
-          <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
-        {/each}
-      </nav>
-    {/if}
-    {#if obfuscatedEmail}
-      <p class="footer-email">{obfuscatedEmail}</p>
-    {/if}
+    <div class="footer-meta">
+      {#if obfuscatedEmail}
+        <span class="footer-email">{obfuscatedEmail}</span>
+      {/if}
+      {#if socialLinks.length > 0}
+        <nav class="footer-links" aria-label="Footer links">
+          {#each socialLinks as link, index}
+            {#if index === 0 && obfuscatedEmail}
+              <span>/</span>
+            {/if}
+            <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+            {#if index < socialLinks.length - 1}
+              <span>/</span>
+            {/if}
+          {/each}
+        </nav>
+      {/if}
+    </div>
     <p>Last updated: {displayLastUpdated}</p>
   </footer>
 </main>

@@ -7,6 +7,10 @@
     "details": [
       "Built a unified dashboard for metrics, incidents, and on-call context.",
       "Adopted by four teams and reduced triage time by **30%**."
+    ],
+    "links": [
+      {"label": "Live Demo", "href": "https://example.com"},
+      {"label": "GitHub", "href": "https://github.com/example/pulseboard"}
     ]
   },
   {
@@ -17,6 +21,7 @@
     "details": [
       "Automated release-note generation from pull request metadata.",
       "Cut release documentation prep time from 2 hours to **10 minutes**."
-    ]
+    ],
+    "links": []
   }
 ]

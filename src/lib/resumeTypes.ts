@@ -13,6 +13,7 @@ export type ProjectItem = {
   technologies: string[]
   date: string
   details: string[]
+  links?: Array<{ label: string; href: string }>
 }
 
 export type Profile = {
