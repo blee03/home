@@ -13,6 +13,7 @@
   export let projects: ProjectItem[]
   export let skillGroups: SkillGroup[]
   export let education: EducationItem[]
+  export let homeHref: string = '/home'
 
   const acronymEntries = Object.entries(acronyms).sort((left, right) => right[0].length - left[0].length)
   const acronymPattern = new RegExp(
@@ -58,7 +59,7 @@
   <section class="section-block dashboard-shell" aria-labelledby="dashboard-heading">
     <div class="dashboard-header">
       <h2 id="dashboard-heading">Internal Dashboard</h2>
-      <a class="button" href="/home">Back to Public Resume</a>
+      <a class="button" href={homeHref}>Back to Public Resume</a>
     </div>
 
     <p class="dashboard-note">

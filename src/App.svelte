@@ -13,6 +13,11 @@
   let route: '/home' | '/internal' = '/home'
   let theme: 'light' | 'dark' = 'light'
 
+  const baseUrl = import.meta.env.BASE_URL
+  const normalizedBasePath = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
+  const homeHref = `${baseUrl}home`
+  const internalHref = `${baseUrl}internal`
+
   const applyTheme = (nextTheme: 'light' | 'dark') => {
     theme = nextTheme
     document.documentElement.dataset.theme = nextTheme
@@ -24,7 +29,13 @@
   }
 
   const syncRouteFromPath = () => {
-    route = window.location.pathname === '/internal' ? '/internal' : '/home'
+    const pathname = window.location.pathname
+    const routePath =
+      normalizedBasePath !== '' && pathname.startsWith(normalizedBasePath)
+        ? pathname.slice(normalizedBasePath.length) || '/'
+        : pathname
+
+    route = routePath === '/internal' ? '/internal' : '/home'
   }
 
   onMount(() => {
@@ -64,6 +75,7 @@
     {skillGroups}
     {education}
     {acronyms}
+    {homeHref}
   />
 {:else}
   <PublicResume
@@ -74,5 +86,6 @@
     {education}
     {acronyms}
     {lastUpdated}
+    {internalHref}
   />
 {/if}
