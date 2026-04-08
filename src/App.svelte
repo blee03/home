@@ -7,16 +7,9 @@
   import acronymDataRaw from './data/acronyms.json?raw'
   import projectDataRaw from './data/projects.json?raw'
   import PublicResume from './lib/PublicResume.svelte'
-  import InternalResumeGenerator from './lib/InternalResumeGenerator.svelte'
   import type { EducationItem, Profile, ProjectItem, ResumeItem, SkillGroup } from './lib/resumeTypes'
 
-  let route: '/home' | '/internal' = '/home'
   let theme: 'light' | 'dark' = 'light'
-
-  const baseUrl = import.meta.env.BASE_URL
-  const normalizedBasePath = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
-  const homeHref = `${baseUrl}home`
-  const internalHref = `${baseUrl}internal`
 
   const applyTheme = (nextTheme: 'light' | 'dark') => {
     theme = nextTheme
@@ -26,16 +19,6 @@
 
   const toggleTheme = () => {
     applyTheme(theme === 'light' ? 'dark' : 'light')
-  }
-
-  const syncRouteFromPath = () => {
-    const pathname = window.location.pathname
-    const routePath =
-      normalizedBasePath !== '' && pathname.startsWith(normalizedBasePath)
-        ? pathname.slice(normalizedBasePath.length) || '/'
-        : pathname
-
-    route = routePath === '/internal' ? '/internal' : '/home'
   }
 
   onMount(() => {
@@ -48,9 +31,6 @@
           : 'light'
 
     applyTheme(preferredTheme)
-    syncRouteFromPath()
-    window.addEventListener('popstate', syncRouteFromPath)
-    return () => window.removeEventListener('popstate', syncRouteFromPath)
   })
 
   const profile = JSON.parse(profileDataRaw) as Profile
@@ -67,25 +47,12 @@
   <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
 </button>
 
-{#if route === '/internal'}
-  <InternalResumeGenerator
-    {profile}
-    {experience}
-    {projects}
-    {skillGroups}
-    {education}
-    {acronyms}
-    {homeHref}
-  />
-{:else}
-  <PublicResume
-    {profile}
-    {experience}
-    {projects}
-    {skillGroups}
-    {education}
-    {acronyms}
-    {lastUpdated}
-    {internalHref}
-  />
-{/if}
+<PublicResume
+  {profile}
+  {experience}
+  {projects}
+  {skillGroups}
+  {education}
+  {acronyms}
+  {lastUpdated}
+/>

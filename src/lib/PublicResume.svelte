@@ -14,7 +14,6 @@
   export let skillGroups: SkillGroup[]
   export let education: EducationItem[]
   export let lastUpdated: string | undefined
-  export let internalHref: string = '/internal'
 
   const displayLastUpdated = lastUpdated ?? import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
 
@@ -166,7 +165,6 @@
     <nav class="footer-links" aria-label="Footer links">
       <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
       <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-      <a href={internalHref}>Internal</a>
     </nav>
     <p>Last updated: {displayLastUpdated}</p>
   </footer>
