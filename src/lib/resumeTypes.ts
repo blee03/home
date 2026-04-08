@@ -17,11 +17,10 @@ export type ProjectItem = {
 
 export type Profile = {
   name: string
-  location: string
-  email: string
-  website: string
-  linkedin: string
-  github: string
+  email?: string
+  website?: string
+  linkedin?: string
+  github?: string
   summary: string
 }
 

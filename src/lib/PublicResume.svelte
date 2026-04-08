@@ -16,6 +16,12 @@
   export let lastUpdated: string | undefined
 
   const displayLastUpdated = lastUpdated ?? import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
+  const profileLinks = profile as Profile & { linkedin?: string; github?: string }
+  const obfuscatedEmail = profile.email?.replace('@', ' [at] ').replaceAll('.', ' [dot] ')
+  const socialLinks = [
+    profileLinks.github && { label: 'GitHub', href: profileLinks.github },
+    profileLinks.linkedin && { label: 'LinkedIn', href: profileLinks.linkedin },
+  ].filter(Boolean) as Array<{ label: string; href: string }>
 
   const acronymEntries = Object.entries(acronyms).sort((left, right) => right[0].length - left[0].length)
   const acronymPattern = new RegExp(
@@ -53,11 +59,22 @@
 <main class="cv-shell">
   <header class="hero section-block">
     <h1>{profile.name}</h1>
-    <p class="header-links">
-      <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-      <span>/</span>
-      <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-    </p>
+    {#if socialLinks.length > 0 || obfuscatedEmail}
+      <p class="header-links">
+        {#if obfuscatedEmail}
+          <span class="header-email">{obfuscatedEmail}</span>
+          {#if socialLinks.length > 0}
+            <span>/</span>
+          {/if}
+        {/if}
+        {#each socialLinks as link, index}
+          <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+          {#if index < socialLinks.length - 1}
+            <span>/</span>
+          {/if}
+        {/each}
+      </p>
+    {/if}
   </header>
 
   <section class="summary-section" aria-label="Professional summary">
@@ -162,10 +179,16 @@
   </section>
 
   <footer class="section-block footer">
-    <nav class="footer-links" aria-label="Footer links">
-      <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
-      <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-    </nav>
+    {#if socialLinks.length > 0}
+      <nav class="footer-links" aria-label="Footer links">
+        {#each socialLinks as link}
+          <a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+        {/each}
+      </nav>
+    {/if}
+    {#if obfuscatedEmail}
+      <p class="footer-email">{obfuscatedEmail}</p>
+    {/if}
     <p>Last updated: {displayLastUpdated}</p>
   </footer>
 </main>

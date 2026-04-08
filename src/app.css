@@ -98,6 +98,13 @@ a {
   letter-spacing: -0.02em;
   box-shadow: 0 4px 14px var(--shadow);
   user-select: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.brand-mark:hover {
+  background: var(--brand-fg);
+  color: var(--brand-bg);
 }
 
 .theme-toggle {
@@ -189,6 +196,16 @@ h1 {
 
 .header-links span {
   color: var(--line-soft);
+}
+
+.header-email {
+  display: inline-flex;
+}
+
+.header-email,
+.footer-email {
+  color: var(--line-soft);
+  font-size: 0.83rem;
 }
 
 .summary-section {
