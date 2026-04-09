@@ -23,7 +23,8 @@ export type Profile = {
   website?: string
   linkedin?: string
   github?: string
-  summary: string
+  summaries: string[]
+  summary?: string
 }
 
 export type SkillGroup = {
@@ -37,4 +38,5 @@ export type EducationItem = {
   degree: string
   location: string
   date: string
+  minor?: string
 }

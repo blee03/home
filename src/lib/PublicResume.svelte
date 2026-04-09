@@ -112,7 +112,9 @@
   </header>
 
   <section class="summary-section" aria-label="Professional summary">
-    <p>{@html formatSummary(profile.summary)}</p>
+    {#if profile.summary}
+      <p>{@html formatSummary(profile.summary)}</p>
+    {/if}
   </section>
 
   <section class="section-block experience-section" aria-labelledby="experience-heading">
@@ -228,6 +230,9 @@
               <p class="location">{item.location}</p>
             </div>
           </div>
+          {#if item.minor}
+            <p class="education-minor"><strong class="emphasis">Minor:</strong> {item.minor}</p>
+          {/if}
         </article>
       {/each}
     </div>

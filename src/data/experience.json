@@ -1,41 +1,65 @@
 [
   {
-    "id": "northbound-labs-staff-engineer",
-    "name-of-company": "Northbound Labs",
-    "companyUrl": "https://northboundlabs.com",
-    "role": "Staff Engineer",
-    "location": "Remote, US",
-    "date": "2022 - Present",
-    "details": [
-      "Led a TypeScript platform migration that reduced deployment time from 45 minutes to 7 minutes.",
-      "Introduced **API contracts** and observability standards that lowered production incidents by 38%.",
-      "Mentored 6 engineers through design reviews and career-growth planning."
-    ]
-  },
-  {
-    "id": "harbor-systems-senior-engineer",
-    "name-of-company": "Harbor Systems",
-    "companyUrl": "https://harborsystems.com",
-    "role": "Senior Full-Stack Engineer",
-    "location": "New York, NY",
-    "date": "2018 - 2022",
-    "details": [
-      "Built a customer analytics dashboard with **real-time alerting** workflows.",
-      "Refactored the frontend into reusable modules, cutting feature delivery cycle time by 25%.",
-      "Partnered with product and design to deliver **accessible UI** across core surfaces."
-    ]
-  },
-  {
-    "id": "brightline-software-engineer",
-    "name-of-company": "Brightline Studio",
-    "companyUrl": "https://brightlinestudio.com",
+    "id": "i3",
+    "name-of-company": "Integration Innovation, Inc. (i3)",
+    "companyUrl": "https://i3-corps.com/",
     "role": "Software Engineer",
-    "location": "Austin, TX",
-    "date": "2014 - 2018",
+    "location": "Huntsville, AL",
+    "date": "Jun 2025 - Present",
     "details": [
-      "Delivered client web platforms with strong SEO and performance baselines.",
-      "Built internal UI starter kits that standardized quality across projects.",
-      "Owned maintenance and feature delivery for multiple high-traffic applications."
+      "Designed and implemented key architectural components of a web-based UAS collaborative ground control client (GCS), advancing a prototype toward a production-ready system.",
+      "Developed testing frameworks and CI/CD pipelines for the GCS client, supporting integration, deployment, and collaboration with vendors and program stakeholders.",
+      "Contributed to fielded autonomy software for uncrewed aerial and ground platforms as part of a cross-functional team.",
+      "Supported on-site system integration events and coordinated with external vendors, program teams, and government stakeholders."
+    ]
+  },
+  {
+    "id": "asco",
+    "name-of-company": "American Society of Clinical Oncology (ASCO)",
+    "companyUrl": "https://asco.org/",
+    "role": "DevOps Intern",
+    "location": "Alexandria, VA",
+    "date": "Jun 2024 - May 2024",
+    "details": [
+      "Built a GitHub Actions CI/CD pipeline utilizing Terraform to automate AWS resource creation, detect configuration changes, post PR comments with Terraform plans, and enforce approval steps.",
+      "Automated Google Lighthouse performance audits on PR creation, replacing manual checks and providing developers with immediate actionable feedback.",
+      "Led an AWS logging cost-reduction project, analyzing Datadog and CloudWatch usage and presenting optimization recommendations to engineering leadership."
+    ]
+  },
+  {
+    "id": "exelaration",
+    "name-of-company": "Exelaration",
+    "companyUrl": "https://exelaration.org",
+    "role": "Software Engineering Intern",
+    "location": "Blacksburg, VA",
+    "date": "May 2023 - Aug 2023",
+    "details": [
+      "Developed the frontend of a full-stack MVP using React, implementing dashboards, login pages, and multiple web pages based on customer-provided designs.",
+      "Refactored state management by integrating Redux, consolidating duplicated backend calls, and streamlining data flow between components for improved performance and maintainability.",
+      "Created CI/CD pipelines with PR tagging to enforce linting, test coverage, and targeted approvals, allowing specific reviewers to approve changes to frontend, backend, or infrastructure components."
+    ]
+  },
+  {
+    "id": "uspto",
+    "name-of-company": "United States Patent and Trademark Office (USPTO)",
+    "companyUrl": "https://www.uspto.gov",
+    "role": "Electrical Engineering Patent Extern",
+    "location": "Alexandria, VA",
+    "date": "Jun 2022 - Aug 2022",
+    "details": [
+      "Examined and conducted advanced searches for electrical engineering patents relating to 3D LIDAR scanner systems, and cameras.",
+      "Co-authored office actions and notices containing findings and decisions for patent pending inventions."
+    ]
+  },
+  {
+    "id": "vt-dining",
+    "name-of-company": "Virginia Tech Dining Services",
+    "companyUrl": "https://dining.vt.edu",
+    "role": "Student Manager",
+    "location": "Blacksburg, VA",
+    "date": "Aug 2021 - May 2025",
+    "details": [
+      "Managed student staff and assisted in training new student employees. Supervised and delegated responsibilities to student staff."
     ]
   }
 ]

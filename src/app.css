@@ -259,7 +259,7 @@ h1 {
 
 .summary-section {
   text-align: left;
-  max-width: 64ch;
+  max-width: 88ch;
   margin: 0.3rem auto 1.1rem;
 }
 
@@ -430,6 +430,10 @@ li + li {
 .education-card {
   display: grid;
   gap: 0.16rem;
+}
+
+.education-minor {
+  margin-top: 0.45rem;
 }
 
 .footer {
@@ -639,6 +643,7 @@ li + li {
   }
 
   .summary-section {
+    max-width: 100%;
     margin: 0.2rem auto 0.8rem;
   }
 

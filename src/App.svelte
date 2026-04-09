@@ -10,6 +10,7 @@
   import type { EducationItem, Profile, ProjectItem, ResumeItem, SkillGroup } from './lib/resumeTypes'
 
   let theme: 'light' | 'dark' | 'system' = 'light'
+  let selectedSummary: string
 
   const profile = JSON.parse(profileDataRaw) as Profile
   const experience = JSON.parse(experienceDataRaw) as ResumeItem[]
@@ -47,6 +48,11 @@
     syncFavicon(nextTheme)
   }
 
+  const pickRandomSummary = () => {
+    const randomIndex = Math.floor(Math.random() * profile.summaries.length)
+    selectedSummary = profile.summaries[randomIndex]
+  }
+
   const toggleTheme = () => {
     const sequence: Array<'light' | 'dark' | 'system'> = ['light', 'dark', 'system']
     const currentIndex = sequence.indexOf(theme)
@@ -72,8 +78,11 @@
       lines.push('')
     }
 
-    lines.push('## Summary')
-    lines.push(profile.summary)
+    lines.push('## Summaries')
+    lines.push('')
+    for (const summary of profile.summaries) {
+      lines.push(`- ${summary}`)
+    }
     lines.push('')
 
     lines.push('## Experience')
@@ -126,6 +135,8 @@
   }
 
   onMount(() => {
+    pickRandomSummary()
+
     const storedTheme = localStorage.getItem('theme') as 'light' | 'dark' | 'system' | null
     const preferredTheme =
       storedTheme === 'light' || storedTheme === 'dark' || storedTheme === 'system'
@@ -161,7 +172,7 @@
 </button>
 
 <PublicResume
-  {profile}
+  profile={{ ...profile, summary: selectedSummary } as Profile}
   {experience}
   {projects}
   {skillGroups}

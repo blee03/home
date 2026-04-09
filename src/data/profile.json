@@ -1,8 +1,13 @@
 {
-  "name": "Your Name",
-  "email": "you [at] example [dot] com",
-  "website": "https://yourdomain.com",
-  "linkedin": "https://linkedin.com/in/your-handle",
-  "github": "https://github.com/your-handle",
-  "summary": "I build reliable products, simplify complexity, and ship clear outcomes with teams."
+  "name": "Brian Lee",
+  "email": "btlee026 [at] gmail [dot] com",
+  "website": "https://blee03.github.io/home/",
+  "linkedin": "https://linkedin.com/in/blee03/",
+  "github": "https://github.com/blee03/",
+  "summaries": [
+    "Associate Software Engineer with experience delivering mission-critical software for defense environments. Developed edge-deployed systems in collaboration with government stakeholders and external vendors. Background includes software-hardware integration and testing for operational readiness.",
+    "Associate Software Engineer with experience developing fielded autonomy software and real-time systems for unmanned aerial systems (UAS). Owned development of a ground control station client from prototype to production. Background includes software-hardware integration and testing for deployed systems.",
+    "Associate Software Engineer with experience developing features and taking web applications from prototype to production. Designed and implemented CI/CD pipelines, established development processes, and shipped production-ready code to accelerate team productivity in fast-paced environments.",
+    "Associate Software Engineer with experience owning features from design through production. Built CI/CD pipelines, implemented development processes, and deployed software to improve team velocity and reliability. Collaborated cross-functionally to deliver high-impact projects."
+  ]
 }
