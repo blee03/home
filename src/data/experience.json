@@ -2,6 +2,7 @@
   {
     "id": "northbound-labs-staff-engineer",
     "name-of-company": "Northbound Labs",
+    "companyUrl": "https://northboundlabs.com",
     "role": "Staff Engineer",
     "location": "Remote, US",
     "date": "2022 - Present",
@@ -14,6 +15,7 @@
   {
     "id": "harbor-systems-senior-engineer",
     "name-of-company": "Harbor Systems",
+    "companyUrl": "https://harborsystems.com",
     "role": "Senior Full-Stack Engineer",
     "location": "New York, NY",
     "date": "2018 - 2022",
@@ -26,6 +28,7 @@
   {
     "id": "brightline-software-engineer",
     "name-of-company": "Brightline Studio",
+    "companyUrl": "https://brightlinestudio.com",
     "role": "Software Engineer",
     "location": "Austin, TX",
     "date": "2014 - 2018",

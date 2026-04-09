@@ -1,6 +1,7 @@
 export type ResumeItem = {
   id: string
   'name-of-company': string
+  companyUrl?: string
   role: string
   location: string
   date: string

@@ -217,12 +217,29 @@ h1 {
   line-height: 1;
 }
 
+.link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.95em;
+  height: 0.95em;
+  flex: 0 0 0.95em;
+}
+
+.link-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
 .header-links span {
   color: var(--line-soft);
 }
 
 .header-email {
   display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .header-email,
@@ -301,6 +318,25 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-top: 0.12rem;
+}
+
+.company-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.company-link:hover {
+  border-bottom-color: currentColor;
+}
+
+.company-link::after {
+  content: '↗';
+  font-size: 0.75em;
+  line-height: 1;
 }
 
 .period {
@@ -510,6 +546,8 @@ li + li {
 
 .footer-email {
   display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
   white-space: nowrap;
   color: var(--line-soft);
   font-size: 0.83rem;

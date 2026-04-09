@@ -10,7 +10,9 @@
     ],
     "links": [
       {"label": "Live Demo", "href": "https://example.com"},
-      {"label": "GitHub", "href": "https://github.com/example/pulseboard"}
+      {"label": "GitHub", "href": "https://github.com/example/pulseboard"},
+      {"label": "Devpost", "href": "https://devpost.com/software/pulseboard"},
+      {"label": "News", "href": "https://example.com/news/pulseboard"}
     ]
   },
   {
