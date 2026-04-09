@@ -1,6 +1,7 @@
 export type ResumeItem = {
   id: string
   'name-of-company': string
+  private: boolean
   companyUrl?: string
   role: string
   location: string
@@ -11,6 +12,7 @@ export type ResumeItem = {
 export type ProjectItem = {
   id: string
   name: string
+  private: boolean
   technologies: string[]
   date: string
   details: string[]

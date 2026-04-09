@@ -1,29 +1,126 @@
 [
   {
-    "id": "pulseboard-platform",
-    "name": "Pulseboard",
-    "technologies": ["C#", "JavaScript", "PostgreSQL", "Docker"],
-    "date": "2023",
+    "id": "personal-website",
+    "name": "Personal Website",
+    "technologies": ["Svelte", "TypeScript", "Vite", "Tailwind CSS"],
+    "date": "Apr 2026 - Present",
     "details": [
-      "Built a unified dashboard for metrics, incidents, and on-call context.",
-      "Adopted by four teams and reduced triage time by **30%**."
+      "Designed and developed a personal website to showcase my projects, experience, and background.",
+      "Implemented a responsive design using Tailwind CSS and built the application using Svelte and TypeScript for a modern and efficient user experience."
     ],
     "links": [
-      {"label": "Live Demo", "href": "https://example.com"},
-      {"label": "GitHub", "href": "https://github.com/example/pulseboard"},
-      {"label": "Devpost", "href": "https://devpost.com/software/pulseboard"},
-      {"label": "News", "href": "https://example.com/news/pulseboard"}
+      {
+        "label": "View Website",
+        "href": "https://blee03.github.io/home/"
+      }
     ]
   },
   {
-    "id": "writeflow-docs-tooling",
-    "name": "Writeflow Docs",
-    "technologies": ["TypeScript", "Node.js", "Markdown"],
-    "date": "2021",
+    "id": "scada",
+    "name": "SCADA for the Virginia Spaceport Authority (VSA)",
+    "technologies": ["C#", "JavaScript", "PostgreSQL", "Docker"],
+    "date": "Aug 2024 - May 2025",
     "details": [
-      "Automated release-note generation from pull request metadata.",
-      "Cut release documentation prep time from 2 hours to **10 minutes**."
+      "As the project manager, I am leading a group of six computer engineers to develop a Supervisory Control and Data Acquisition (SCADA) system for the Virginia Spaceport Authority.",
+      "This system will provide alerts for abnormal values and day-to-day monitoring and of various sensors located on a rocket launchpad."
+    ],
+    "links": [
+      {
+        "label": "Project Details",
+        "href": "https://ece.vt.edu/content/ece_vt_edu/en/news/vt-ece-department-news/ece-virginia-spaceport-authority-major-design-experience-collab.html"
+      }
+    ]
+  },
+  {
+    "id": "simmips",
+    "name": "MIPS Simulator (simmips)",
+    "technologies": ["C++", "MIPS Assembly", "Qt", "CMake"],
+    "date": "Jan 2024 - May 2024",
+    "details": [
+      "The MIPS simulator is capable of simulating program execution of a selected subset of MIPS assembly source code. It will eventually contain a text user interface and a MIPS virtual machine.",
+      "Utilized test driven development (TDD) practices and object oriented programming (OOP) patterns to create a medium scale standalone application from the ground up.",
+      "MIPS Simulator is currently being developed as a semester-long project for ECE 3574: Applied Software Design.",
+      "Source code available on request."
     ],
     "links": []
+  },
+  {
+    "id": "face-report",
+    "name": "face.report",
+    "technologies": ["Python", "OpenCV", "TensorFlow"],
+    "date": "Feb 2023",
+    "details": [
+      "The project was designed over 24 continuous hours as part of HackViolet 2023, winning 2nd overall.",
+      "face.report searches the web for any online photos that are similar to the user, informing on possibly unwanted usage of their likeliness.",
+      "Led a team of four to create a full stack application consisting of a Svelte and Flask front-end coupled to a Python facial recognition back-end."
+    ],
+    "links": [
+      {
+        "label": "Repository",
+        "href": "https://github.com/blee03/face.report"
+      }
+    ]
+  },
+  {
+    "id": "autonomous-tractor",
+    "name": "Autonomous Tractor",
+    "technologies": ["Python", "Arduino C", "BLE"],
+    "date": "Jan 2023 - May 2023",
+    "details": [
+      "The autonomous tractor is a small battery-powered vehicle capable of autonomously driving on a track. It utilizes a path smoothing algorithm and is capable of stopping and turning.",
+      "Worked primarily on manipulating infrared sensor data to turn and stop the tractor. Also responsible for utilizing Bluetooth protocols to transfer data from a GUI located on a host computer remotely to the tractor.",
+      "The Autonomous Tractor was developed as a semester-long project for ECE 2804: Integrated Design Project."
+    ],
+    "links": [
+      {
+        "label": "Repository",
+        "href": "https://github.com/blee03/2804_ATP"
+      }
+    ]
+  },
+  {
+    "id": "liftai",
+    "name": "LIFTai",
+    "technologies": ["Python", "HTML", "CSS", "Git", "Django"],
+    "date": "Nov 2022",
+    "details": [
+      "Submitted to the VTHacks X Hackathon, where the application won awards for best UI/UX.",
+      "Given data in the form of workout exercises, the Python algorithm will fill out the rest of the workout so that an optimal workout targeting all necessary workout groups can be completed.",
+      "Developed a front-end web application written in Django to neatly present findings from the algorithm along with associated videos."
+    ],
+    "links": [
+      {
+        "label": "Repository",
+        "href": "https://github.com/blee03/liftai"
+      }
+    ]
+  },
+  {
+    "id": "hack-violet",
+    "name": "Talk To Me Now Bot",
+    "technologies": ["API", "Java"],
+    "date": "Feb 2022",
+    "details": ["Mental health and positive affirmation application."],
+    "links": [
+      {
+        "label": "Repository",
+        "href": "https://github.com/antnguyen33/TalkToMeNowBot"
+      }
+    ]
+  },
+  {
+    "id": "wheres-my-bus",
+    "name": "Where's My Bus?",
+    "technologies": ["API", "Flask", "Python", "JSON"],
+    "date": "Dec 2020",
+    "details": [
+      "EastBanc Transportation Solution Winner. Python application created by utilizing an API to show bus times and routes. Used Flask framework to display in webpage."
+    ],
+    "links": [
+      {
+        "label": "Repository",
+        "href": "https://github.com/blee03/Where-s-My-Bus-"
+      }
+    ]
   }
 ]

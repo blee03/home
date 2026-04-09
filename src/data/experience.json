@@ -6,6 +6,7 @@
     "role": "Software Engineer",
     "location": "Huntsville, AL",
     "date": "Jun 2025 - Present",
+    "private": false,
     "details": [
       "Designed and implemented key architectural components of a web-based UAS collaborative ground control client (GCS), advancing a prototype toward a production-ready system.",
       "Developed testing frameworks and CI/CD pipelines for the GCS client, supporting integration, deployment, and collaboration with vendors and program stakeholders.",
@@ -20,6 +21,7 @@
     "role": "DevOps Intern",
     "location": "Alexandria, VA",
     "date": "Jun 2024 - May 2024",
+    "private": false,
     "details": [
       "Built a GitHub Actions CI/CD pipeline utilizing Terraform to automate AWS resource creation, detect configuration changes, post PR comments with Terraform plans, and enforce approval steps.",
       "Automated Google Lighthouse performance audits on PR creation, replacing manual checks and providing developers with immediate actionable feedback.",
@@ -33,6 +35,7 @@
     "role": "Software Engineering Intern",
     "location": "Blacksburg, VA",
     "date": "May 2023 - Aug 2023",
+    "private": false,
     "details": [
       "Developed the frontend of a full-stack MVP using React, implementing dashboards, login pages, and multiple web pages based on customer-provided designs.",
       "Refactored state management by integrating Redux, consolidating duplicated backend calls, and streamlining data flow between components for improved performance and maintainability.",
@@ -46,6 +49,7 @@
     "role": "Electrical Engineering Patent Extern",
     "location": "Alexandria, VA",
     "date": "Jun 2022 - Aug 2022",
+    "private": false,
     "details": [
       "Examined and conducted advanced searches for electrical engineering patents relating to 3D LIDAR scanner systems, and cameras.",
       "Co-authored office actions and notices containing findings and decisions for patent pending inventions."
@@ -58,6 +62,7 @@
     "role": "Student Manager",
     "location": "Blacksburg, VA",
     "date": "Aug 2021 - May 2025",
+    "private": false,
     "details": [
       "Managed student staff and assisted in training new student employees. Supervised and delegated responsibilities to student staff."
     ]

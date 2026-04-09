@@ -1,14 +1,10 @@
 [
   {
-    "title": "Core",
-    "skills": ["System design", "Product thinking", "Technical leadership", "Mentorship"]
+    "title": "Languages",
+    "skills": ["Python 3", "C# (.NET 10)", "C++", "Java", "TypeScript"]
   },
   {
     "title": "Frontend",
-    "skills": ["Svelte", "TypeScript", "Accessibility", "Performance optimization"]
-  },
-  {
-    "title": "Backend",
-    "skills": ["Node.js", "API design", "SQL", "Caching and queues"]
+    "skills": ["Docker, AWS, CI/CD", "React"]
   }
 ]

@@ -15,6 +15,8 @@
   const profile = JSON.parse(profileDataRaw) as Profile
   const experience = JSON.parse(experienceDataRaw) as ResumeItem[]
   const projects = JSON.parse(projectDataRaw) as ProjectItem[]
+  const visibleExperience = experience.filter((item) => !item.private)
+  const visibleProjects = projects.filter((item) => !item.private)
   const skillGroups = JSON.parse(skillsDataRaw) as SkillGroup[]
   const education = JSON.parse(educationDataRaw) as EducationItem[]
   const acronyms = JSON.parse(acronymDataRaw) as Record<string, string>
@@ -173,8 +175,8 @@
 
 <PublicResume
   profile={{ ...profile, summary: selectedSummary } as Profile}
-  {experience}
-  {projects}
+  experience={visibleExperience}
+  projects={visibleProjects}
   {skillGroups}
   {education}
   {acronyms}
