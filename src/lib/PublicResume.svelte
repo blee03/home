@@ -15,8 +15,6 @@
   export let education: EducationItem[]
   export let lastUpdated: string | undefined
 
-  let expandedProjectId: string | null = null
-
   const displayLastUpdated = lastUpdated ?? import.meta.env.VITE_LAST_COMMIT_DATE ?? 'No commits yet'
   const profileLinks = profile as Profile & { linkedin?: string; github?: string }
   const obfuscatedEmail = profile.email?.replace('@', ' [at] ').replaceAll('.', ' [dot] ')
@@ -82,11 +80,6 @@
       const label = acronyms[match]
       return `<abbr class="acronym" title="${escapeHtml(label)}">${match}</abbr>`
     })
-  }
-
-  const toggleProjectExpand = (projectId: string | undefined) => {
-    if (!projectId) return
-    expandedProjectId = expandedProjectId === projectId ? null : projectId
   }
 
 </script>
@@ -170,46 +163,32 @@
         </article>
       {:else}
         {#each projects as project}
-          <article class="card project-card" class:expanded={expandedProjectId === project.id}>
-            <button
-              class="project-toggle"
-              on:click={() => toggleProjectExpand(project.id)}
-              aria-expanded={expandedProjectId === project.id}
-              aria-label={`${expandedProjectId === project.id ? 'Collapse' : 'Expand'} ${project.name}`}
-            >
-              <div class="card-head">
-                <div>
-                  <h3>{project.name}</h3>
-                  <p class="company">{project.technologies.join(', ')}</p>
-                </div>
-                <div class="date-meta">
-                  <p class="period">{project.date}</p>
-                  <div class="project-expand-indicator" aria-hidden="true">▼</div>
-                </div>
+          <article class="card project-card">
+            <div class="card-head">
+              <div>
+                <h3>{project.name}</h3>
+                <p class="company">{project.technologies.join(', ')}</p>
               </div>
-              <ul>
-                {#each project.details as detail}
-                  <li>{@html formatDetail(detail)}</li>
+              <div class="date-meta">
+                <p class="period">{project.date}</p>
+              </div>
+            </div>
+            <ul>
+              {#each project.details as detail}
+                <li>{@html formatDetail(detail)}</li>
+              {/each}
+            </ul>
+            {#if project.links && project.links.length > 0}
+              <div class="project-links">
+                {#each project.links as link, index}
+                  <a href={link.href} target="_blank" rel="noreferrer">
+                    <span class="link-icon" aria-hidden="true">{@html renderIcon(getProjectLinkKind(link.label, link.href))}</span>
+                    <span>{link.label}</span>
+                  </a>
+                  {#if index < project.links.length - 1}
+                    <span>/</span>
+                  {/if}
                 {/each}
-              </ul>
-            </button>
-            {#if expandedProjectId === project.id}
-              <div class="project-expanded">
-                {#if project.links && project.links.length > 0}
-                  <div class="project-links">
-                    {#each project.links as link, index}
-                      <a href={link.href} target="_blank" rel="noreferrer">
-                        <span class="link-icon" aria-hidden="true">{@html renderIcon(getProjectLinkKind(link.label, link.href))}</span>
-                        <span>{link.label}</span>
-                      </a>
-                      {#if index < project.links.length - 1}
-                        <span>/</span>
-                      {/if}
-                    {/each}
-                  </div>
-                {:else}
-                  <p>More details coming soon...</p>
-                {/if}
               </div>
             {/if}
           </article>
