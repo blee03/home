@@ -102,7 +102,7 @@
             <span>{obfuscatedEmail}</span>
           </span>
           {#if socialLinks.length > 0}
-            <span>/</span>
+            <span class="header-separator">/</span>
           {/if}
         {/if}
         {#each socialLinks as link, index}
@@ -111,7 +111,7 @@
             <span>{link.label}</span>
           </a>
           {#if index < socialLinks.length - 1}
-            <span>/</span>
+            <span class="header-separator">/</span>
           {/if}
         {/each}
       </p>
@@ -261,6 +261,9 @@
           <span class="link-icon" aria-hidden="true">{@html renderIcon('email')}</span>
           <span>{obfuscatedEmail}</span>
         </span>
+        {#if socialLinks.length > 0}
+          <span class="footer-separator">/</span>
+        {/if}
       {/if}
       {#if socialLinks.length > 0}
         <nav class="footer-links" aria-label="Footer links">
@@ -270,7 +273,7 @@
               <span>{link.label}</span>
             </a>
             {#if index < socialLinks.length - 1}
-              <span>/</span>
+              <span class="footer-separator">/</span>
             {/if}
           {/each}
         </nav>
