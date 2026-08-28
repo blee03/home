@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=0.75in]{geometry}
+\usepackage{fontawesome5}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+% Define colors
+\definecolor{darkblue}{rgb}{0.1, 0.3, 0.5}
+
+% Remove default paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Header style
+\newcommand{\sectionheader}[1]{%
+  \textcolor{darkblue}{\textbf{\large #1}}
+  \vspace{-12pt}
+  \hrule
+  \vspace{8pt}
+}
+
+% Job entry style
+\newcommand{\jobentry}[4]{%
+  \textbf{#1} \hfill \textit{#2}\\
+  \textit{#3} \hfill #4\\
+}
+
+% Project entry style
+\newcommand{\projectentry}[3]{%
+  \textbf{#1} \hfill \textit{#2}\\
+  \textit{#3}\\
+}
+
+% Education entry style
+\newcommand{\educationentry}[4]{%
+  \textbf{#1} \hfill \textit{#2}\\
+  \textit{#3} \hfill #4\\
+}
+
+% Skill category style
+\newcommand{\skillcategory}[2]{%
+  \textbf{#1:} #2\\
+}
+
+\begin{document}
+
+% ============================================================================
+% HEADER
+% ============================================================================
+\begin{center}
+  {\LARGE \textbf{Your Name}}
+\end{center}
+
+% ============================================================================
+% CONTACT INFORMATION
+% ============================================================================
+\begin{center}
+  \small
+  Phone: \texttt{(XXX) XXX-XXXX} \hspace{1cm}
+  Email: \texttt{email@example.com} \hspace{1cm}
+  Citizenship: \texttt{United States}
+\end{center}
+
+\vspace{12pt}
+
+% ============================================================================
+% EXPERIENCE
+% ============================================================================
+\sectionheader{Experience}
+\vspace{6pt}
+
+\jobentry{Job Title}{Start Date - End Date}{Company Name}{Location}
+\begin{itemize}[left=18pt, noitemsep]
+  \item Achievement or responsibility
+  \item Achievement or responsibility
+  \item Achievement or responsibility
+\end{itemize}
+\vspace{8pt}
+
+\jobentry{Job Title}{Start Date - End Date}{Company Name}{Location}
+\begin{itemize}[left=18pt, noitemsep]
+  \item Achievement or responsibility
+  \item Achievement or responsibility
+  \item Achievement or responsibility
+\end{itemize}
+\vspace{8pt}
+
+\jobentry{Job Title}{Start Date - End Date}{Company Name}{Location}
+\begin{itemize}[left=18pt, noitemsep]
+  \item Achievement or responsibility
+  \item Achievement or responsibility
+  \item Achievement or responsibility
+\end{itemize}
+
+% ============================================================================
+% PROJECTS
+% ============================================================================
+\sectionheader{Projects}
+\vspace{6pt}
+
+\projectentry{Project Name}{Start Date - End Date}{Technology Stack: Language, Framework, Tool}
+\begin{itemize}[left=18pt, noitemsep]
+  \item Project description or achievement
+  \item Project description or achievement
+\end{itemize}
+\vspace{8pt}
+
+\projectentry{Project Name}{Start Date - End Date}{Technology Stack: Language, Framework, Tool}
+\begin{itemize}[left=18pt, noitemsep]
+  \item Project description or achievement
+  \item Project description or achievement
+\end{itemize}
+\vspace{8pt}
+
+\projectentry{Project Name}{Start Date - End Date}{Technology Stack: Language, Framework, Tool}
+\begin{itemize}[left=18pt, noitemsep]
+  \item Project description or achievement
+  \item Project description or achievement
+\end{itemize}
+
+% ============================================================================
+% SKILLS
+% ============================================================================
+\sectionheader{Skills}
+\vspace{6pt}
+
+\skillcategory{Skill Category}{Skill 1, Skill 2, Skill 3, Skill 4}
+\skillcategory{Skill Category}{Skill 1, Skill 2, Skill 3}
+\skillcategory{Skill Category}{Skill 1, Skill 2, Skill 3, Skill 4, Skill 5}
+
+% ============================================================================
+% EDUCATION
+% ============================================================================
+\sectionheader{Education}
+\vspace{6pt}
+
+\educationentry{Degree Name}{Graduation Date}{School Name}{Location}
+Minor: Minor Name
+
+\end{document}

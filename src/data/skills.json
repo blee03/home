@@ -1,10 +1,10 @@
 [
   {
     "title": "Languages",
-    "skills": ["Python 3", "C# (.NET 10)", "C++", "Java", "TypeScript"]
+    "skills": ["Python 3", "C# (.NET 10)", "C++ (17+)", "Java", "TypeScript"]
   },
   {
     "title": "Frontend",
-    "skills": ["Docker, AWS, CI/CD", "React"]
+    "skills": ["Docker, AWS, CI/CD", "React.js", "Protobuf"]
   }
 ]

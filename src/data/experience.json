@@ -1,11 +1,24 @@
 [
   {
+    "id": "maxtena",
+    "name-of-company": "Maxtena, Inc.",
+    "companyUrl": "https://www.maxtena.com/",
+    "role": "Embedded Software Engineer",
+    "location": "Germantown, MD",
+    "date": "Jun 2026 - Present",
+    "private": false,
+    "details": [
+      "Develop embedded software for transceiver and network systems, focusing on system interfaces and hardware-software integration.",
+      "Support on-site integration and validation of next-generation transceiver and network systems for Army applications."
+    ]
+  },
+  {
     "id": "i3",
     "name-of-company": "Integration Innovation, Inc. (i3)",
     "companyUrl": "https://i3-corps.com/",
     "role": "Software Engineer",
     "location": "Huntsville, AL",
-    "date": "Jun 2025 - Present",
+    "date": "Jun 2025 - Jun 2026",
     "private": false,
     "details": [
       "Designed and implemented key architectural components of a web-based UAS collaborative ground control client (GCS), advancing a prototype toward a production-ready system.",
